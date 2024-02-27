@@ -15,10 +15,10 @@ public class LoginServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String user = request.getParameter("user");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if (user.equals("admin") && password.equals("1234"))
-            request.getRequestDispatcher("admin.jsp").forward(request, response);
+        if (username.equals("admin") && password.equals("1234"))
+            response.sendRedirect("admin");
         else {
             request.setAttribute("message", "Incorrect user or password");
             request.getRequestDispatcher("login.jsp").forward(request, response);
