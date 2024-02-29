@@ -12,7 +12,7 @@
 
 <div class="login-container">
     <div class="login-header">
-        <h2>Login</h2>
+
     </div>
 
     <form action="" method="post">

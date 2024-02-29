@@ -41,8 +41,10 @@ public class Task extends ModeloBase{
         this.description = description;
     }
 
-    public boolean getStatus() {
-        return status;
+    public String getStatus() {
+        if (status)
+            return "Finished";
+        return "Unfinished";
     }
 
     public void setStatus(boolean status) {

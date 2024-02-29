@@ -2,12 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Welcome</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/indexStyle.css">
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Welcome to" %>
 </h1>
 <br/>
+<img src="assets/images/logo.png" alt="logo"/>
+<h1><%= "AppWeb" %>
 <a href="login">Login</a>
+
 </body>
 </html>

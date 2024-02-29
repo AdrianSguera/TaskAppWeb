@@ -35,7 +35,7 @@ public class AppController {
         return Task.getTasksBD();
     }
 
-    public List<Task> getTasksByUser(){
+    public List<Task> getTasksByUser(User userLogged){
         return new Task().getByUser(userLogged.getId());
     }
 
@@ -43,7 +43,7 @@ public class AppController {
         return Rol.getRolesBD();
     }
 
-    public boolean newTask(String title, String description, LocalDateTime deadline){
+    public boolean newTask(String title, String description, LocalDateTime deadline, User userLogged){
         return new Task().insertar("(title,description,deadline,iduser) values (?,?,?,?)", title, description, deadline, userLogged.getId());
     }
 

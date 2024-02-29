@@ -23,8 +23,10 @@ public class Rol extends ModeloBase{
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescription(int id) {
+        if (id == 1)
+            return "user";
+        return "admin";
     }
 
     public void setDescription(String description) {

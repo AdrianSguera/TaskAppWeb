@@ -1,0 +1,163 @@
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f2f2f2;
+}
+
+/* Estilos para la imagen */
+header img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/* Estilos para el título */
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilos para la línea separadora */
+.separator {
+    width: 50%;
+    margin: 10px auto;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Estilos para el enlace */
+.close-session-link {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.close-session-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Estilos para las celdas de la tabla */
+td, th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para las filas impares */
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para el encabezado de la tabla */
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos para el hover sobre las filas */
+tr:hover {
+    background-color: #ddd;
+}
+
+.options-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.options-panel form {
+    margin: 0;
+}
+
+.options-panel button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.options-panel button:hover {
+    background-color: #0056b3;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+
+.option-section {
+    display: none;
+}
+
+#ver-section {
+    margin-top: 20px;
+}
+
+/* Estilos para el formulario de crear tarea */
+#crear-tarea-form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#crear-tarea-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#crear-tarea-form input[type="text"],
+#crear-tarea-form textarea,
+#crear-tarea-form input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* Asegura que el tamaño total incluya el padding y el borde */
+}
+
+#crear-tarea-form textarea {
+    height: 100px; /* Ajusta la altura según sea necesario */
+}
+
+#crear-tarea-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#crear-tarea-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#crear-tarea-form button[type="submit"] {
+    margin-top: 10px;
+}
+
+#modificar-section {
+    margin-top: 20px;
+}
