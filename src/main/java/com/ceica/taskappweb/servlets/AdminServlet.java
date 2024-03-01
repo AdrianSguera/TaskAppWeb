@@ -38,11 +38,12 @@ public class AdminServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         AppController appController = new AppController();
+
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         int idrol = Integer.parseInt(request.getParameter("idrol"));
 
-        appController.newUser(username,password,idrol);
+        appController.newUser(username, password, idrol);
 
         List<User> users = appController.getUsers();
         request.setAttribute("users", users);

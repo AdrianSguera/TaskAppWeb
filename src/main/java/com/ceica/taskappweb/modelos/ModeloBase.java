@@ -1,7 +1,7 @@
 package com.ceica.taskappweb.modelos;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,15 +25,13 @@ public abstract class ModeloBase {
 
     private static void cargarConfiguracion() {
         Properties propiedades = new Properties();
-        try (FileInputStream entrada = new FileInputStream(CONFIG_FILE)) {
+        try (InputStream entrada = ModeloBase.class.getClassLoader().getResourceAsStream(CONFIG_FILE)) {
             propiedades.load(entrada);
             URL = propiedades.getProperty("db.url");
             USUARIO = propiedades.getProperty("db.usuario");
             PASSWORD = propiedades.getProperty("db.pass");
         } catch (IOException e) {
-            URL = "jdbc:mysql://localhost:3306/tareasapp";
-            USUARIO = "task";
-            PASSWORD = "1234";
+            e.printStackTrace();
         }
     }
 

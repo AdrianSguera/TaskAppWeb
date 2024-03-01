@@ -8,6 +8,7 @@
     <title>User</title>
     <link rel="stylesheet" type="text/css" href="assets/css/userStyle.css">
     <script src="assets/js/user.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <header>
@@ -48,9 +49,10 @@
             <th>Deadline</th>
             <th>Status</th>
             <th>User</th>
+            <th>Action</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="tableTask">
         <c:forEach var="task" items="${tasks}">
             <tr>
                 <td>${task.getId()}</td>
@@ -60,10 +62,15 @@
                 <td>${task.getDeadline()}</td>
                 <td>${task.getStatus()}</td>
                 <td>${task.getUser().getUsername()}</td>
+                <td>
+                    <i class="fa-solid fa-file-pen"></i>
+                    <i onClick="deleteTask(${task.getId()})" class="fa-solid fa-trash"></i>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
+<script rel="stylesheet" src="assets/js/user.js"></script>
 </body>
 </html>

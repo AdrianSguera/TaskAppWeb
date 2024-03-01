@@ -63,8 +63,8 @@ public class AppController {
         return new User().modificar("username = ? WHERE iduser = ?", dato, idUser);
     }
 
-    public boolean changePasswordUser(String username, String dato) {
-        return new User().modificar("password = ? WHERE username = ?", dato, username);
+    public boolean changePasswordUser(int idUser, String dato) {
+        return new User().modificar("password = ? WHERE iduser = ?", dato, idUser);
     }
 
     public boolean changeRolUser(int idUser, int dato) {

@@ -8,6 +8,8 @@
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="assets/css/adminStyle.css">
     <script src="assets/js/admin.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
 <header>
@@ -19,7 +21,6 @@
 <div class="options-panel">
     <button id="crear-btn" class="option-btn">New user</button>
     <button id="modificar-btn" class="option-btn">All users</button>
-    <button id="eliminar-btn" class="option-btn">Delete user</button>
     <button id="ver-btn" class="option-btn">All tasks</button>
 </div>
 
@@ -47,6 +48,7 @@
             <th>Username</th>
             <th>Password</th>
             <th>Rol</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -56,15 +58,14 @@
                 <td>${user.getUsername()}</td>
                 <td>${user.getPassword()}</td>
                 <td>${user.getRol().getId()}</td>
+                <td>
+                    <i class="fa-solid fa-file-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-</div>
-
-<div id="eliminar-section" class="option-section">
-    <h1>Eliminar</h1>
-    <!-- Contenido para eliminar tarea -->
 </div>
 
 <div id="ver-section" class="option-section">
@@ -78,6 +79,7 @@
             <th>Deadline</th>
             <th>Status</th>
             <th>User</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -90,6 +92,10 @@
                 <td>${task.getDeadline()}</td>
                 <td>${task.getStatus()}</td>
                 <td>${task.getUser().getUsername()}</td>
+                <td>
+                    <i class="fa-solid fa-file-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
