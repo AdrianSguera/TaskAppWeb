@@ -53,21 +53,31 @@
         </tr>
         </thead>
         <tbody id="tableTask">
-        <c:forEach var="task" items="${tasks}">
-            <tr>
-                <td>${task.getId()}</td>
-                <td>${task.getTitle()}</td>
-                <td>${task.getDescription()}</td>
-                <td>${task.getCreation_time()}</td>
-                <td>${task.getDeadline()}</td>
-                <td>${task.getStatus()}</td>
-                <td>${task.getUser().getUsername()}</td>
-                <td>
-                    <i class="fa-solid fa-file-pen"></i>
-                    <i onClick="deleteTask(${task.getId()})" class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
-        </c:forEach>
+        <c:choose>
+            <c:when test="${not empty tasks}">
+                <c:forEach var="task" items="${tasks}">
+                    <tr>
+                        <td>${task.getId()}</td>
+                        <td>${task.getTitle()}</td>
+                        <td>${task.getDescription()}</td>
+                        <td>${task.getCreation_time()}</td>
+                        <td>${task.getDeadline()}</td>
+                        <td>${task.getStatus()}</td>
+                        <td>${task.getUser().getUsername()}</td>
+                        <td>
+                            <i class="fa-solid fa-file-pen"></i>
+                            <i onClick="deleteTask(${task.getId()})" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <tr>
+                    <td colspan="8">No tasks assigned</td>
+                </tr>
+            </c:otherwise>
+        </c:choose>
+
         </tbody>
     </table>
 </div>

@@ -50,7 +50,7 @@ public class ApiServlet extends HttpServlet {
                 tablaHTML.append("</tr>");
             }
         } else
-            tablaHTML.append("<tr><td>No tasks assigned</td></tr>");
+            tablaHTML.append("<tr><td colspan=\"8\">No tasks assigned</td></tr>");
 
         return tablaHTML.toString();
     }
