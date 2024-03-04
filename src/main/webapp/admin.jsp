@@ -34,7 +34,7 @@
         <input type="password" id="password" name="password"><br>
 
         <label for="idrol">Rol:</label>
-        <input type="number" id="idrol" name="idrol"><br>
+        <input type="number" id="idrol" name="idrol" min="1" max="2">
 
         <button type="submit">Submit</button>
     </form>
@@ -51,19 +51,28 @@
             <th>Action</th>
         </tr>
         </thead>
-        <tbody>
-        <c:forEach var="user" items="${users}">
-            <tr>
+        <tbody id="tableUser">
+        <c:choose>
+            <c:when test="${not empty users}">
+        <c:forEach var="user" items="${users}" varStatus="status">
+            <tr id="userRow_${status.index}">
                 <td>${user.getId()}</td>
                 <td>${user.getUsername()}</td>
                 <td>${user.getPassword()}</td>
                 <td>${user.getRol().getId()}</td>
                 <td>
                     <i class="fa-solid fa-file-pen"></i>
-                    <i class="fa-solid fa-trash"></i>
+                    <i onClick="deleteUser(${user.getId()}, ${status.index})" class="fa-solid fa-trash"></i>
                 </td>
             </tr>
         </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <tr>
+                    <td colspan="8">No users created</td>
+                </tr>
+            </c:otherwise>
+        </c:choose>
         </tbody>
     </table>
 </div>
@@ -82,22 +91,31 @@
             <th>Action</th>
         </tr>
         </thead>
-        <tbody>
-        <c:forEach var="task" items="${tasks}">
-            <tr>
-                <td>${task.getId()}</td>
-                <td>${task.getTitle()}</td>
-                <td>${task.getDescription()}</td>
-                <td>${task.getCreation_time()}</td>
-                <td>${task.getDeadline()}</td>
-                <td>${task.getStatus()}</td>
-                <td>${task.getUser().getUsername()}</td>
-                <td>
-                    <i class="fa-solid fa-file-pen"></i>
-                    <i class="fa-solid fa-trash"></i>
-                </td>
-            </tr>
-        </c:forEach>
+        <tbody id="tableTask">
+        <c:choose>
+            <c:when test="${not empty tasks}">
+                <c:forEach var="task" items="${tasks}">
+                    <tr>
+                        <td>${task.getId()}</td>
+                        <td>${task.getTitle()}</td>
+                        <td>${task.getDescription()}</td>
+                        <td>${task.getCreation_time()}</td>
+                        <td>${task.getDeadline()}</td>
+                        <td>${task.getStatus()}</td>
+                        <td>${task.getUser().getUsername()}</td>
+                        <td>
+                            <i class="fa-solid fa-file-pen"></i>
+                            <i onClick="deleteTask(${task.getId()})" class="fa-solid fa-trash"></i>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <tr>
+                    <td colspan="8">No tasks assigned</td>
+                </tr>
+            </c:otherwise>
+        </c:choose>
         </tbody>
     </table>
 </div>

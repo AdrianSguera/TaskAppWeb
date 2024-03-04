@@ -16,3 +16,40 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+function deleteTask(idTask){
+    let baseUrl = window.location.protocol + "//" + window.location.host + "/TaskAppWeb_war/api?idTask=" + idTask;
+
+    fetch(baseUrl, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'text',
+        },
+
+    })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("tableTask").innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+function deleteUser(idUser, rowIndex){
+    let baseUrl = window.location.protocol + "//" + window.location.host + "/TaskAppWeb_war/api?idUser=" + idUser;
+
+    fetch(baseUrl, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+
+    })
+        .then(response => response.json())
+        .then(_ => {
+            let userRow = document.getElementById(`userRow_${rowIndex}`);
+            userRow.parentNode.removeChild(userRow);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
